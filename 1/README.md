@@ -3,9 +3,10 @@
 2. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc/manual.html>
 
 3. 熟读 [Programming in Lua](https://github.com/kinbei/NEO/blob/master/1/Programming%20in%20Lua.pdf) 打开后点击`Download`     
-注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/kinbei/NEO/blob/master/1/lua.exe.zip) (打开后点击`Download`) 运行例子     
+注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/kinbei/NEO/blob/master/1/lua.exe.rar) (打开后点击`Download`) 运行例子     
 (1) 第 1 - 6 章    
 (2) 第 11, 18, 19, 20, 22章     
+(3) 解压 `lua.exe.rar` 文件后, 运行 `run.bat` 并输入 Lua 文件名, 回车运行即可     
 
 4. 熟读 [服务器协议接口说明](https://github.com/kinbei/NEO/blob/master/1/1.%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8D%8F%E8%AE%AE%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E.md)
 
