@@ -2,7 +2,7 @@
 
 2. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc/manual.html>
 
-3. 熟读 [Programming in Lua](https://github.com/kinbei/NEO/blob/master/1/Programming%20in%20Lua.pdf) 打开后点击`Download`     
+3. 熟读 [Programming in Lua Second](https://github.com/kinbei/NEO/blob/master/1/Programming%20in%20Lua(Second).pdf) 打开后点击`Download`     
 注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/kinbei/NEO/blob/master/1/lua.exe.rar) (打开后点击`Download`) 运行例子     
 (1) 第 1 - 6 章    
 (2) 第 11, 18, 19, 20, 22章     
