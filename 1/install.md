@@ -1,22 +1,14 @@
-1. 在 `C:\windows\System32\drivers\etc\hosts` 文件最后添加如下内容
-```
-192.168.0.210 code.project1.local
-192.168.0.212 dev.project1.local
-```
-注：  
-(1) 如果遇到无法保存，请右键文件hosts并找到 `属性` -> `安全`，选择你登录的用户名，点击 编辑 ，勾选 `写入` 即可。  
-(2) `code.project1.local` 为内网代码服务器  
-(3) `code.project1.local` 为内网测试服务器  
-
-2. 安装软件列表  
+安装软件列表  
 (1) `navicat`  
 (2) `VS2008`  
 (3) `VS2008SP1`   
 (4) `winrar`  
-注: 以上工具在共享获取 `\\code.project1.local\software\dev_install` 用户名: `user` 密码: `user123456`  
+注: 以上工具在共享获取 `\\code.project1.local\software\dev` 用户名: `share` 密码: `share`  
+(win10用户, 在【控制面板】中找到【程序和功能】-> 【启用和关闭windows功能】-> 勾选【SMB 1.0 /CIFS 服务器】，然后重启)  
+
 (5) `editplus` https://www.editplus.com   
 (6) `svn` https://tortoisesvn.net/downloads.zh.html    
-(7) `sublime3` https://www.sublimetext.com   
+(7) `sublime3` https://www.sublimetext.com      
 ```
 ----- BEGIN LICENSE -----
 sgbteam
@@ -32,5 +24,13 @@ EA7E-1153259
 F913BE58 42FEA319 F954EFDD AE881E0B
 ------ END LICENSE ------
 ```
-(8) 手机模拟器 https://www.yeshen.com  
+
+(8) `mysql` https://cdn.mysql.com//archives/mysql-installer/mysql-installer-community-5.7.19.0.msi
+
+(9) 手机模拟器 https://www.yeshen.com  
+
+FAQ:
+1. 安装 `Mysql` 时报 `无法定位程序输入点 fesetround 于动态链接库 .....\mysqld.exe 上` 时, 安装以下组件    
+http://download.microsoft.com/download/b/e/8/be8a5444-cdd8-4d3d-ae09-a0979b05aee3/vcredist_x64.exe     
+
 
