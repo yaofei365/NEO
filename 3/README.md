@@ -9,7 +9,7 @@
 
 ## 配置文件
 
-### 服务端配置文件 `server.config`    
+服务端配置文件 `server.config`    
 ```lua
 host = 192.168.0.240
 port = 3360
@@ -19,7 +19,7 @@ database = sample
 listen_port = 6789
 ```
 
-#### 客户端配置文件 `client.config`    
+客户端配置文件 `client.config`    
 ```lua
 ip = 192.168.0.240
 port = 6789
