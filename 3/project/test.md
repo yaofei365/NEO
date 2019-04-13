@@ -50,7 +50,14 @@ New client from : 127.0.0.1:51107
 Recv from: client(127.0.0.1:51107) hello world
 ```
 
-6. Mysql 服务器配置修改为 `无法连接的地址`, 服务器在接收到了客户端字符后，会有错误提示    
+6. 将 `server.bat` 中的 `"%CURRENT_DIR%lua5.1.exe" server.lua server.config` 改为 `"%CURRENT_DIR%lua5.1.exe" server.lua server.config_1`, 启动服务器后, 会有错误提示    
+```
+error: Failed to open file (server.config)
+请按任意键继续. . .
+
+```
+
+7. Mysql 服务器配置修改为 `无法连接的地址`, 服务器在接收到了客户端字符后，会有错误提示    
 ```
 Listen on 0.0.0.0:6789
 New client from : 127.0.0.1:51299
@@ -67,7 +74,7 @@ sg(LuaSQL: Error connecting to database. MySQL: Can't connect to MySQL server on
  '192.168.0.24' (10060))
 ```
 
-7. Mysql 服务器配置修改为 `错误的用户名密码`, 服务器在接收到了客户端字符后，会有错误提示    
+8. Mysql 服务器配置修改为 `错误的用户名密码`, 服务器在接收到了客户端字符后，会有错误提示    
 ```
 Listen on 0.0.0.0:6789
 New client from : 127.0.0.1:51932
@@ -83,7 +90,7 @@ Failed to connect mysql (127.
  Access denied for user 'root'@'localhost' (using password: YES))
 ```
 
-8. 配置文件中的 `database` 修改为错误的数据库名, 服务器在接收到了客户端字符后，会有错误提示   
+9. 配置文件中的 `database` 修改为错误的数据库名, 服务器在接收到了客户端字符后，会有错误提示   
 ```
 Listen on 0.0.0.0:6789
 New client from : 192.168.0.240:51870
@@ -95,7 +102,7 @@ Error from: client(192.168.0.240:51870) Failed to connect mysql (127.0.0.1:3306)
 Failed to connect mysql (127.0.0.1:3306) - database(sample1), msg(LuaSQL: Error connecting to database. MySQL: Unknown database 'samplexxx')
 ```
 
-9. 将 `mysql` 数据库中的 `sample` 库中的 `sample` 表删除, 服务器在接收到了客户端字符后，会有错误提示    
+10. 将 `mysql` 数据库中的 `sample` 库中的 `sample` 表删除, 服务器在接收到了客户端字符后，会有错误提示    
 ```
 Listen on 0.0.0.0:6789
 New client from : 127.0.0.1:51490
@@ -107,7 +114,7 @@ Error from: client(192.168.0.240:51734) LuaSQL: Error executing query. MySQL: Ta
 LuaSQL: Error executing query. MySQL: Table 'sample.sample' doesn't exist
 ```
 
-10. 执行以下 sql 脚本, 服务器在接收到了客户端字符后，会有错误提示    
+11. 执行以下 sql 脚本, 服务器在接收到了客户端字符后，会有错误提示    
 ```
 drop table if exists `sample`;
 create table `sample` (
