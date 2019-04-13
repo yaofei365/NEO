@@ -7,7 +7,7 @@ Listen on 0.0.0.0:6789
 
 2. 服务器启动, 端口被占用, 界面显示    
 ```
-error: Failed to bind port
+error: Unable to bind address or port
 请按任意键继续. . .
 ```
 
@@ -33,7 +33,7 @@ Recv from: client(127.0.0.1:23950) hello world
 success
 ```
 
-强制关闭客户端，界面有断开提示    
+强制关闭客户端，服务端界面有断开提示    
 ```
 Listen on 0.0.0.0:6789
 New client from : 127.0.0.1:23950
