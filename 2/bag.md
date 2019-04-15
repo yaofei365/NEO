@@ -36,7 +36,7 @@ get_item_overlay_size(item_id) 根据 item_id 返回物品的叠加数
 
 (2) `load_item(tbl_item)`    
 a. 游戏初始化时, 将物品加载到背包       
-b. 无返回值
+b. 无返回值    
 c. `tbl_item = { [unique_id] = {item}, ... }`
 
 (3) `put_item_id(item_id, count)`    
