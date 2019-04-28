@@ -26,29 +26,21 @@
 ## bag 提供以下接口
 (1) 创建背包 (callback)    
 a. `callback` 必须提供以下接口    
-on_add_item() 用于监听物品增加信息, 无返回    
-on_mod_item() 用于监听物品修改信息, 无返回    
-on_del_item() 用于监听物品删除信息, 无返回    
 can_overlay(item, item_id, count, ...) 判断物品是否可叠加, 可叠加返回 true, 否则返回 false    
 get_bag_size() 返回背包大小    
 create_item(bag, item_id, count, free_slot, ...) 返回创建的新物品    
 get_item_overlay_size(item_id) 根据 item_id 返回物品的叠加数    
 
-(2) `load_item(tbl_item)`    
-a. 游戏初始化时, 将物品加载到背包       
-b. 无返回值    
-c. `tbl_item = { [unique_id] = {item}, ... }`
-
-(3) `put_item_id(item_id, count)`    
+(2) `put_item_id(item_id, count)`    
 a. 添加指定 `item_id` 的物品, 个数为 `count` 个    
 b. 加入物品成功时, 返回 `true`, 否则返回 `false`    
 c. 当背包已存在 `item_id` 的物品时, 需要优先叠加到 `现有物品` 上    
 d. 调用完 `put_item_id()` 后, 必须调用 `commit()` 接口提交背包的修改     
 
-(4) `put_item_begin()`    
+(3) `put_item_begin()`    
 a. 开始背包增加物品修改     
 
-(5) `put_item_commit()`    
+(4) `put_item_commit()`    
 a. 提交背包增加物品修改     
 b. 无返回值    
 
