@@ -1,5 +1,5 @@
 做一个 DEMO, 实现以下功能    
-(1) 下载 [project.rar](https://github.com/kinbei/NEO/blob/master/3/project.rar)
+(1) 下载 [project.rar](https://github.com/kinbei/NEO/blob/master/3/project.rar)     
 (2) 使用 `luasocket` 和 `luasql` 两个组件    
 (3) 实现 `client.lua` 和 `server.lua` 两个文件并放到 `project` 目录下, 双击 `server.bat` 和 `client.bat` 检查运行结果     
 (4) 具体验收要求详见 https://github.com/kinbei/NEO/blob/master/3/project/test.md    
