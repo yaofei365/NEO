@@ -16,6 +16,6 @@
 
 7. 熟读 [服务器编码规范](https://github.com/kinbei/NEO/blob/master/1/3.%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83.md)   
 
-8. 实现一个 Demo([详情点击])(https://github.com/kinbei/NEO/tree/master/3) 并整理 `luasocket` 和 `luasql`  的使用说明文档     
+8. 实现一个 Demo [详情点击](https://github.com/kinbei/NEO/tree/master/3) 并整理 `luasocket` 和 `luasql`  的使用说明文档     
 
 
