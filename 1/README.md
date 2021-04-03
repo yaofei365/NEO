@@ -2,7 +2,7 @@
 
 2. 体验游戏 [游戏下载](http://dev.project1.local/update/deploy/jzqy/apk/android/jzqy_release_2.1.1.0.1470002-81976.apk)      
 
-3. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc/manual.html>
+3. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc-simplified-version/manual.html>
 
 4. 熟读 [Programming in Lua Second](https://github.com/kinbei/NEO/blob/master/1/Programming%20in%20Lua(Second).pdf) 打开后点击`Download`     
 注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/kinbei/NEO/blob/master/1/lua.exe.rar) (打开后点击`Download`) 运行例子     
