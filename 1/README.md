@@ -1,6 +1,6 @@
 1. [环境安装](https://github.com/kinbei/NEO/blob/master/1/install.md)
 
-2. 体验游戏 [游戏下载](http://dev.project1.local/update/deploy/jzqy/apk/android/jzqy_release_2.1.1.0.1470002-81976.apk)      
+2. 体验游戏 [打开内部导航页](http://dev.project1.local/), 最上面为【最新版本】, 点击【Android包下载】并下载最新的 apk 包安装到模拟器      
 
 3. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc-simplified-version/manual.html>
 
@@ -8,7 +8,7 @@
 注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/yaofei365/Lua-Windows-Binaries/suites/2419970884/artifacts/51608921) (打开后点击`Download`) 运行例子     
 (1) 第 1 - 6 章    
 (2) 第 11, 18, 19, 20, 22章     
-(3) 解压 `lua.exe.rar` 文件后, 运行 `run.bat` 并输入 Lua 文件名, 回车运行即可     
+(3) 解压 `lua.zip` 后, 运行 `lua.exe` 即可运行 lua 语句     
 
 5. 熟读 [服务器协议接口说明](https://github.com/kinbei/NEO/blob/master/1/1.%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8D%8F%E8%AE%AE%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E.md)
 
