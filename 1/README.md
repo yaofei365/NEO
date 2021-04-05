@@ -5,7 +5,7 @@
 3. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc-simplified-version/manual.html>
 
 4. 熟读 [Programming in Lua Second](https://github.com/kinbei/NEO/blob/master/1/Programming%20in%20Lua(Second).pdf) 打开后点击`Download`     
-注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/kinbei/NEO/blob/master/1/lua.exe.rar) (打开后点击`Download`) 运行例子     
+注: 只需要熟悉以下章节, 并下载 [lua.exe](https://github.com/yaofei365/Lua-Windows-Binaries/suites/2419970884/artifacts/51608921) (打开后点击`Download`) 运行例子     
 (1) 第 1 - 6 章    
 (2) 第 11, 18, 19, 20, 22章     
 (3) 解压 `lua.exe.rar` 文件后, 运行 `run.bat` 并输入 Lua 文件名, 回车运行即可     
