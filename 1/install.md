@@ -23,6 +23,7 @@ A684C2DC 0B1583D4 19CBD290 217618CD
 DD9AF44B 99C49590 D2DBDEE1 75860FD2
 8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864
 ------ END LICENSE ------
+```
 
 (8) `mysql` https://cdn.mysql.com//archives/mysql-installer/mysql-installer-community-5.7.19.0.msi
 
