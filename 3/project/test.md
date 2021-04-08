@@ -50,7 +50,7 @@ New client from : 127.0.0.1:51107
 Recv from: client(127.0.0.1:51107) hello world
 ```
 
-6. 将 `server.bat` 中的 `"%CURRENT_DIR%lua5.1.exe" server.lua server.config` 改为 `"%CURRENT_DIR%lua5.1.exe" server.lua server.config_1`, 启动服务器后, 会有错误提示    
+6. 将 `server.bat` 中的 `"%CURRENT_DIR%lua.exe" server.lua server.config` 改为 `"%CURRENT_DIR%lua.exe" server.lua server.config_1`, 启动服务器后, 会有错误提示    
 ```
 error: Failed to open file (server.config)
 请按任意键继续. . .

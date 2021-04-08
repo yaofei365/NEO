@@ -1,0 +1,54 @@
+name: build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+    - uses: msys2/setup-msys2@v2
+      with:
+        update: true
+        install: >-
+          git base-devel zip
+
+    - uses: actions/checkout@v2
+      with:
+        submodules : true
+    - run: |
+        git config --global user.email "kinbei@qq.com"
+        git config --global user.name "kinbei"
+ 
+    - uses: shogo82148/actions-setup-mysql@v1.2.0
+      with:
+          mysql-version: '8.0'
+    - run: |
+          MYSQL_PATH=$(mysql -uroot -h'127.0.0.1' -Ne 'select @@basedir')
+          cd 3
+          make all MYSQL_INC=${MYSQL_PATH}\include MYSQL_LIB=${MYSQL_PATH}\lib
+          cp ${MYSQL_PATH}/lib/libmysql.dll project/
+          cp ${MYSQL_PATH}/bin/libssl*.dll project/
+          cp ${MYSQL_PATH}/bin/libcrypto*.dll project/
+          cp lua/src/lua.exe project/
+          cp luasocket/src/socket-3.0-rc1.dll project/socket.dll
+          mkdir -p project/luasql/
+          cp mysql.dll project/luasql/
+      shell: bash
+
+    - name: Build
+      shell: msys2 {0}
+      run: |
+        cd 3
+        zip -gr project.zip project/
+
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.ACTIONS_REMOTE_BUILD_TOKEN }}
+        file: 3/project.zip
+        asset_name: project.zip
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "project.zip"

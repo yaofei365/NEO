@@ -1,0 +1,10 @@
+[submodule "3/lua"]
+	path = 3/lua
+	url = https://github.com/yaofei365/Lua
+	branch = skynet
+[submodule "3/luasql"]
+	path = 3/luasql
+	url = https://github.com/keplerproject/luasql
+[submodule "3/luasocket"]
+	path = 3/luasocket
+	url = https://github.com/diegonehab/luasocket
