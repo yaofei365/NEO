@@ -1,3 +1,10 @@
+增加内部域名    
+在 `C:\Windows\System32\drivers\etc\hosts` 文件添加以下内容    
+```
+192.168.0.212 dev.project1.local
+192.168.0.210 code.project1.local
+```
+
 安装软件列表  
 (1) `navicat`  
 (2) `VS2008`  
