@@ -1,6 +1,6 @@
 1. [环境安装](install.md)
 
-2. 体验游戏 [打开内部导航页](http://dev.project1.local/), 最上面为【最新版本】, 点击【Android包下载】并下载最新的 apk 包安装到模拟器      
+2. 体验游戏 [打开内部导航页](http://dev.project1.local/), 最上方为【最新版本】, 点击【Android包下载】并下载最新的 apk 包安装到模拟器      
 
 3. 熟读 `Lua` 参考手册 <https://kinbei.github.io/lua53doc-simplified-version/manual.html>
 
