@@ -32,6 +32,7 @@ jobs:
           cp ${MYSQL_PATH}/bin/libssl*.dll project/
           cp ${MYSQL_PATH}/bin/libcrypto*.dll project/
           cp lua/src/lua.exe project/
+          cp lua/src/lua53.dll project/
           cp luasocket/src/socket-3.0-rc1.dll project/socket.dll
           mkdir -p project/luasql/
           cp mysql.dll project/luasql/
