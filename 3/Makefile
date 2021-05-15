@@ -26,8 +26,8 @@ luasocket/src/socket.dll : lua
 mysql.dll : luasql/src/luasql.c luasql/src/ls_mysql.c
 	$(CC) $(CFLAG) -I$(LUA_INC) -L$(LUA_LIB) -I$(MYSQL_INC) -L$(MYSQL_LIB) -o $@ $^ -llua -lmysql
 
-lua/src/lua.exe : 
-	cd lua/src && make generic MYCFLAGS="-g -DNO_STDATOMIC"
+lua/src/lua.exe :
+	cd lua && make generic MYCFLAGS="-g -DNO_STDATOMIC"
 
 clean:
 	rm -rf mysql.dll
