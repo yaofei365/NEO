@@ -1,3 +1,5 @@
+下载 `deploy.rar`      
+
 1. 分别在 gateway 和 dbmgr 进程新增两条协议 `gw_player_create` 和 `db_player_create`     
 2. `gw_player_create` 和 `db_player_create` 协议的字段如下    
 ```
@@ -14,4 +16,4 @@ response:
 5. `test` 返回并打印 `player_id`    
 
 注:
-1. 数据库初始化 sql 在 `deploy\server\bat\create_struct.sql`
+1. 数据库初始化 sql 在 `deploy\server\bat\create_struct.sql`      
