@@ -13,3 +13,5 @@ response:
 4. `test` 会发送 `gw_player_create` 到 `gateway` 进程, `gw_player_create` 在收到协议后, 发送 `db_player_create` 到 dbmgr, dbmgr 向 mysql 插入数据      
 5. `test` 返回并打印 `player_id`    
 
+注:
+1. 数据库初始化 sql 在 `deploy\server\bat\create_struct.sql`
