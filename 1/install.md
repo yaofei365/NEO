@@ -10,8 +10,10 @@
 (2) `VS2008`  
 (3) `VS2008SP1`   
 (4) `winrar`  
-注: 以上工具在共享获取 `\\code.project1.local\software\server` 用户名: `share` 密码: `share`  
-(win10用户, 在【控制面板】中找到【程序和功能】-> 【启用和关闭windows功能】-> 勾选【SMB 1.0 /CIFS 服务器】，然后重启)    
+注意:     
+1. 以上工具在共享获取 `\\code.project1.local\software\server`(特别注意: 用 Win + R 打开 `\\code.project1.local\`), 再输入 用户名: `share` 密码: `share`     
+2. Win10用户, 在【控制面板】中找到【程序和功能】-> 【启用和关闭windows功能】-> 勾选【SMB 1.0 /CIFS 服务器】，然后重启    
+
 (5) `editplus` https://www.editplus.com   
 (6) `svn` https://tortoisesvn.net/downloads.zh.html    
 (7) `sublime3` https://www.sublimetext.com      
