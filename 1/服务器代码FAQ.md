@@ -57,5 +57,6 @@ b) 由服务器的定时器触发, 通常在进程目录下 `main` 文件通过�
 修改`mysql`的表，在 Lua 必须通过 `daodb.表名()` 进行操作, 而目前只有`dbmgr`和`centermgr`两个进程可以操作数据库, 所以在`dbmgr`或`centermgr`目录下查找`daodb.表名()`    
 eg. `daodb.tb_user()`
 
-
+#### 9. 如何对`mysql`某个表进行增删改查操作?    
+详见: https://github.com/yaofei365/NEO/blob/master/1/4.服务器库表结构.md    
 
