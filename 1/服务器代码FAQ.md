@@ -46,7 +46,7 @@ end
 a) 服务器的所有[结构]在 `deploy\common\netimpl\common\` 这个文件夹必须有对应的定义 及 每个字段的注释    
 b) 少数内部使用的[结构]不会在 `deploy\common\netimpl\common\` 定义, 但必定是在一个 Lua 文件内, 如果是跨多个 Lua 文件的, 必定会在 `deploy\common\netimpl\common\` 有定义(即使协议没有使用到)    
 
-#### 6. 服务器是如何触发业务的?    
+#### 6. 服务器是如何触发业务逻辑的?    
 a) 由客户端发起协议触发, 通常是 `GW_` 开头的协议    
 b) 由服务器的定时器触发, 通常在进程目录下 `main` 文件通过调用 `addTimeTask` 添加定时器    
 
