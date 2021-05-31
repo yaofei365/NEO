@@ -60,3 +60,13 @@ eg. `daodb.tb_user()`
 #### 9. 如何对`mysql`某个表进行增删改查操作?    
 详见: https://github.com/yaofei365/NEO/blob/master/1/4.服务器库表结构.md    
 
+#### 10. 策划配置表如何读取，使用?    
+在服务器代码中，对配置表的统一命名是：`tb_table_xxx` (其中`xxx`为策划配置的`excel`表名)    
+读取策划配置表时, 如下所示(例子以读取`meridians`配置表为例):
+```
+local load_table = require("load_table")
+local tb_table_meridians = load_table("tb_table_meridians")
+```
+上述两句代码通常写在 Lua 文件头部, `load_table()` 返回的值是一个`table`    
+查找哪些代码使用了某个配置表，可以全文搜索`tb_table_xxx`(其中`xxx`为策划配置的`excel`表名)    
+
