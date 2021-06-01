@@ -70,3 +70,31 @@ local tb_table_meridians = load_table("tb_table_meridians")
 上述两句代码通常写在 Lua 文件头部, `load_table()` 返回的值是一个`table`    
 查找哪些代码使用了某个配置表，可以全文搜索`tb_table_xxx`(其中`xxx`为策划配置的`excel`表名)    
 
+#### 11. 服务器间如何通讯?    
+a) 在大多数情况下，用`daserver.syncCall()`和`daserver.call()`就可以; 其中`syncCall`表示"同步"调用，必须得对端返回协议才会继续走下面的逻辑     
+b) 
+```
+-- servant_name 为协议号, 通常在 netdefine.lua 定义
+-- request 为请求协议
+-- response 为返回协议
+-- 此函数没有返回值, 调用后, 直至服务器返回协议才会继续走下面的逻辑
+-- 出现超时(默认10s), 返回出错的情况, 统一在 response 的 retcode 字段中赋值错误码
+daserver.syncCall(servant_name, request, response)
+
+-- servant_name 为协议号, 通常在 netdefine.lua 定义
+-- request 为请求协议
+-- 此函数没有返回值, 调用后只管发送协议, 不等服务器返回
+daserver.call(servant_name, request)
+```
+
+#### 12. 用什么`IDE`？
+通常用`sublime`, 将 `deploy` 目录用鼠标拖进左侧的 `side bar` 即可    
+常用的快捷键使用如下:    
+`Ctrl + p` 查找文件名    
+`Ctrl + r` 查找函数名    
+`Ctrl + f` 当前文件中查找    
+`Ctrl + Shift + f` 全文文件中查找    
+
+
+
+
