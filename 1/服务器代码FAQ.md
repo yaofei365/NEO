@@ -87,13 +87,17 @@ daserver.syncCall(servant_name, request, response)
 daserver.call(servant_name, request)
 ```
 
-#### 12. 用什么`IDE`？
+#### 12. 用什么`IDE`?    
 通常用`sublime`, 打开`sublime`后用鼠标将`deploy`目录拖到去即可    
 常用的快捷键使用如下:    
 `Ctrl + p` 查找文件名    
 `Ctrl + r` 查找函数名    
 `Ctrl + f` 当前文件中查找    
 `Ctrl + Shift + f` 全文文件中查找    
+
+#### 13. 进程内存的数据保存在哪?    
+每个进程都有自己保存的数据，保存的数据通常在进程目录下`global.lua`文件里有定义    
+读取时, 采用`进程名_global`来获取(eg. 在 gateway 中可以用 gateway_global.xxx 来获取保存在进程内的数据)    
 
 
 
