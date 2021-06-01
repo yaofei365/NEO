@@ -110,6 +110,6 @@ b) 构建完成后, 打开 http://dev.project1.local/dbbackup/ 进行下载, 通
 c) 运行 \deploy\server\bat\import_sql_from_file.bat, 选择 `单服` 或 `央服`, 然后拖入上一步下载的`sql`文件, 回车, 等待导入完成    
 
 #### 16. 如何使用内网账号在本地进行测试?     
-a) 获取角色昵称
+a) 获取角色昵称    
 b) 根据角色昵称， 在本地数据库`tb_player`表查找字段`nickname`对应的记录, 并记录`user_id`字段的值    
 c) 根据`user_id`在本地数据库`tb_user`表找到对应记录, 并获取`session`值, 在客户端使用`session`进行登录       
