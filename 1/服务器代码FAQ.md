@@ -88,7 +88,7 @@ daserver.call(servant_name, request)
 ```
 
 #### 12. 用什么`IDE`？
-通常用`sublime`, 将 `deploy` 目录用鼠标拖进左侧的 `side bar` 即可    
+通常用`sublime`, 打开`sublime`后用鼠标将`deploy`目录拖到去即可    
 常用的快捷键使用如下:    
 `Ctrl + p` 查找文件名    
 `Ctrl + r` 查找函数名    
