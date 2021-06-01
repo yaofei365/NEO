@@ -99,6 +99,8 @@ daserver.call(servant_name, request)
 每个进程都有自己保存的数据，保存的数据通常在进程目录下`global.lua`文件里有定义    
 读取时, 采用`进程名_global`来获取(eg. 在 gateway 中可以用 gateway_global.xxx 来获取保存在进程内的数据)    
 
-
-
+#### 14. 有没有封装一些公用函数?    
+a) 进程内的公用函数通常在每个进程目录下的`global.lua`里     
+b) 多个进程使用的公用代码通常在 `deploy\server\lua\server_common`目录下     
+c) 不涉及业务逻辑的公用函数在 `deploy\common\commonfunc.lua`    
 
