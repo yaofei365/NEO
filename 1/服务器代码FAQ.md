@@ -130,3 +130,17 @@ c) 如果想要打印一个`table`里的所有值，可以用`require("util.dump
 log_error("%s", require("util.dump").dump(t))  -- 其中 t 为需要打印的 table
 ```
 
+#### 18. 服务器如何实例“每日重置”，“每周重置”?      
+a) 参见 [库表结构](https://github.com/yaofei365/NEO/blob/master/1/4.%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84.md)中第 7 点: `玩家私有数据表`    
+b) 由于服务器并非加载所有玩家的数据到`内存数据库`， “每日重置”时只有部份活跃玩家的数据在`内存数据库`     
+c) 目前服务器实现的“每日重置”是通过对每个“需要重置的数据”记录多一个“重置时间戳”, eg: 玩家的`每日活跃值(active_value)`, 会有一个`活跃值重置时间(active_value_reset_time)`     
+d) 读取数据时, 先判断“重置时间”，如果一致，则数据有效； 如果不一致，则表示数据“重置”， 如下代码所示 (同样以`每日活跃值`作为例子)     
+```
+if player.avatar_detail.active_value_reset_time ~= gateway_global.daily_reset_time then
+	player.avatar_detail.active_value_reset_time = 0
+	player.avatar_detail.active_value_reset_time = gateway_global.daily_reset_time
+end
+
+-- 后续操作 ...
+```
+e) 游戏中所有数据的重置基本上都采用这个方案, 每日重置则与 `gateway_global.daily_reset_time` 判断； 每周重置则与 `gateway_global.weekly_reset_time` 判断     
