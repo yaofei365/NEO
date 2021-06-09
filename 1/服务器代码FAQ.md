@@ -144,3 +144,8 @@ end
 -- 后续操作 ...
 ```
 e) 游戏中所有数据的重置基本上都采用这个方案, 每日重置则与 `gateway_global.daily_reset_time` 判断； 每周重置则与 `gateway_global.weekly_reset_time` 判断     
+
+#### 19. 新增奖励类型需要修改哪些代码?     
+详见: https://github.com/jzqy/jzqy/wiki 整理了一些常见的代码修改      
+
+
