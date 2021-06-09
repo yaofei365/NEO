@@ -125,8 +125,8 @@ local log_error = daserver.log_error
 -- 在需要打印 log 的位置加上 log_error
 log_error("%s %d", ...)
 ```
-c) 如果想要打印一个`table`里的所有值，可以用`require("util.dump").dump(t)`
-注意: `dump`函数只能用于内网 / 本地调试时打印数据, 正式发布时需要去除 (因为此函数有一定的时间消耗, 会影响到玩家的正常操作)     
+c) 如果想要打印一个`table`里的所有值，可以用`require("util.dump").dump(t)`       
+**注意: `dump`函数只能用于内网 / 本地调试时打印数据, 正式发布时需要去除 (因为此函数有一定的时间消耗, 会影响到玩家的正常操作)**      
 ```
 log_error("%s", require("util.dump").dump(t))  -- 其中 t 为需要打印的 table
 ```
