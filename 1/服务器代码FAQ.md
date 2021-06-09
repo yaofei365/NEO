@@ -169,4 +169,19 @@ local get_next_uuid = require("server_common.get_next_uuid").get_next_uuid
 get_next_uuid(gateway_global.tbl_sys_uuid_inc, DBDEF.SYSTEM_UUID_TYPE.XXXXX, gateway_global.server_id)
 ```
 
+#### 22. 如何添加一个定时器?    
+以 `gateway` 为例, 可以使用以下代码添加一个定时器    
+```
+	local function timeout()
+		return -- return nil 时表示定时器终止
+		return 1000 -- return 1000 表示 1000 毫秒后再次触发
+	end
+
+	gateway_global.timewheel:timeout(seconds * 1000, timeout)
+```
+a) `gateway_global.timewheel:timeout()`　第一个参数为时间(即多长时间后触发, 注意单位是: 毫秒); 第二个参数为 触发时调用的函数;     
+b) timemout 函数的返回值决定`定时器`是否重复触发; `return nil` 时定时器则不会再触发        
+c) 定时器触发时, 调用者有责任对数据进行检查(eg. 玩家可能已经不在线, 玩家相关数据已经不在内存)     
+
+
 
