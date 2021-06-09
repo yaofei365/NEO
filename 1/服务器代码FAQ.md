@@ -125,7 +125,8 @@ local log_error = daserver.log_error
 -- 在需要打印 log 的位置加上 log_error
 log_error("%s %d", ...)
 ```
-c) 如果想要打印一个`table`里的所有值，可以用`require("util.dump").dump(t)`    
+c) 如果想要打印一个`table`里的所有值，可以用`require("util.dump").dump(t)`
+注意: `dump`函数只能用于内网 / 本地调试时打印数据, 正式发布时需要去除 (因为此函数有一定的时间消耗, 会影响到玩家的正常操作)     
 ```
 log_error("%s", require("util.dump").dump(t))  -- 其中 t 为需要打印的 table
 ```
@@ -147,5 +148,25 @@ e) 游戏中所有数据的重置基本上都采用这个方案, 每日重置则
 
 #### 19. 新增奖励类型需要修改哪些代码?     
 详见: https://github.com/jzqy/jzqy/wiki 整理了一些常见的代码修改      
+
+#### 20. 什么情况下需要生成一个`唯一 id`?    
+a) 此`id`在协议中使用, 并且数据库的多个表会记录这个`id`    
+b) 如果使用数据库的`自增 id`, 在 a) 的情况下, 合服时, 需要同时修改多张表中记录的`id`    
+c) 目前合服脚本只支持三种情况 两个服务器的表数据直接合并； 表数据直接清除;   只保留其中一个服的数据; 
+d) 综上所述, 需要生成`唯一 id`, 保证合服时, 两张表的数据可以直接合并;
+
+#### 21. 如何在 `gateway` 获得一个`唯一 id`?    
+a) 在 `deploy/server/lua/dbmgr/dbdefine.lua` 中 `SYSTEM_UUID_TYPE` 新增一个新的定义（gateway 的唯一 id 通常在 1000 以后增加）      
+b) 通知运维在 ${svnpath}\deploy\server\sqlscript\init_system_data.sql 中 insert `tb_sys_id_increment` 时增加语句, 并提供修复sql     
+c) 如果增加 >= 1000 的定义, 通知运维在 ${svnpath}\shell\server\sqlscript\sp_fixed_worker_uuid.sql 加上对应的函数调用      
+d) c) 中提及的`sp_fixed_worker_uuid`, 第一个参数表示刚刚新增的定义的值, 第二个参数表示此`唯一 id`保存在数据库对应的表(可以通过此表获取此 id 在全服的最大值)       
+d) 在`gateway`使用以下代码获取`唯一id`(其中 XXXXX 为新增的定义)    
+```
+local get_next_uuid = require("server_common.get_next_uuid").get_next_uuid
+
+...
+
+get_next_uuid(gateway_global.tbl_sys_uuid_inc, DBDEF.SYSTEM_UUID_TYPE.XXXXX, gateway_global.server_id)
+```
 
 
