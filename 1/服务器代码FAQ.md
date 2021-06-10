@@ -159,7 +159,7 @@ d) 综上所述, 需要生成`唯一 id`, 保证合服时, 两张表的数据可
 a) 在 `deploy/server/lua/dbmgr/dbdefine.lua` 中 `SYSTEM_UUID_TYPE` 新增一个新的定义（gateway 的唯一 id 通常在 1000 以后增加）      
 b) 通知运维在 ${svnpath}\deploy\server\sqlscript\init_system_data.sql 中 insert `tb_sys_id_increment` 时增加语句, 并提供修复sql     
 c) 如果增加 >= 1000 的定义, 通知运维在 ${svnpath}\shell\server\sqlscript\sp_fixed_worker_uuid.sql 加上对应的函数调用      
-d) c) 中提及的`sp_fixed_worker_uuid`, 第一个参数表示刚刚新增的定义的值, 第二个参数表示此`唯一 id`保存在数据库对应的表(可以通过此表获取此 id 在全服的最大值)       
+d) c) 中提及的`sp_fixed_worker_uuid`, 第一个参数表示刚刚新增的定义的值, 第二个参数表示此`唯一 id`保存在数据库对应的表(可以通过此表获取此 id 在单服的最大值)       
 d) 在`gateway`使用以下代码获取`唯一id`(其中 XXXXX 为新增的定义)    
 ```
 local get_next_uuid = require("server_common.get_next_uuid").get_next_uuid
