@@ -198,3 +198,9 @@ f) 在`\deploy\server\conf\`目录下找到对应进程的配置文件,  其中 
 g) eg. 从 gateway.conf 的配置中可以看出, gateway 会主动连接 `dbmgr`, `globalmgr`, `chatrecord` 三个进程, 所以在 gateway 向这三个进程发送协议都应该用 `call`     
 h) 当不确定用 `call` 还是用 `send` 时, 可以通过查看配置的方式确定;     
 
+#### 25. gateway 向 cellapp 发送协议应该用 `call()` 还是 `send()`, 查看 gateway 配置文件没有主动连接 cellapp?    
+在现有的服务器架构中, 大部份进程的连接关系都会在进程的配置文件中会相应的配置; 除了 `cellapp` 是个特例, 因为 `cellapp` 会配置很多个进程, 如果每个都在 gateway 的配置文件里配置, 那么不小的配置工作量；所以`cellapp`目前采用的是"动态连接"，即当 gateway 需要向某个 cellapp 发送协议时, 才会“动态连接”上`cellapp`; 这些细节都被封装到了 `player:call_cellapp()`(同步调用) 和 `player:send_to_cellapp()`(异步调用, 不等返回); 所以在 gateway 中向 cellapp 发送协议, 通常调用 `player:call_cellapp()` 或 `player:send_to_cellapp()` 即可; 
+
+#### 26. 
+
+
