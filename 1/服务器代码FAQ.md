@@ -183,5 +183,16 @@ a) `gateway_global.timewheel:timeout()`　第一个参数为时间(即多长时�
 b) timemout 函数的返回值决定`定时器`是否重复触发; `return nil` 时定时器则不会再触发        
 c) 定时器触发时, 调用者有责任对数据进行检查(eg. 玩家可能已经不在线, 玩家相关数据已经不在内存)     
 
+#### 23. GW_ 开头与 GWI_ 开头都是 `gateway` 的协议, 它们有什么区别?     
+a) `GW_`开头的协议通常用于客户端的请求, 对客户端开放     
+b) `GWI_`开头的协议通常是服务器内部**主动**通知`gateway`的协议，只对服务器内部开放     
 
+#### 24. 协议通讯的四个接口 `daserver.call()`, `daserver.send()`, `daserver.syncCall()`, `daserver.syncSend()` 它们有什么区别?    
+a) 有 `sync` 前缀的 `daserver.syncCall()`, `daserver.syncSend()` 表示调用之后, 必须等待**对端服务器**返回，才会继续走之后的逻辑；会"阻塞"业务, 默认超时是 10 秒     
+b) 没有`sync` 前缀的 `daserver.call()`, `daserver.send()` 表示调用之后, 不会等待**对端服务器**返回, 不会“阻塞”业务    
+c) 发送协议使用 `call` 或 `send` 取决于： “发送者”是 “被动连接”(别人主动发起连接) 还是 “主动连接”(自己主动连接别人)     
+d) "被动连接"用`send`; "主动连接"用`call`;    
+e) eg. 在现有服务器的架构中, `gateway` 主动连接 `globalmgr`, 所以 `gateway` 向 `globalmgr` 发送协议时, 应该用 `call`; 而 `globalmgr` 向 `gateway` 发送协议时, 应该用 `send`;      f) 在`\deploy\server\conf\`目录下找到对应进程的配置文件,  其中 `[servant service settings]` 表示本进程提供的服务(监听的端口); `[server settings]` 表示本进程主动连接的服务;     
+g) eg. 从 gateway.conf 的配置中可以看出, gateway 会主动连接 `dbmgr`, `globalmgr`, `chatrecord` 三个进程, 所以在 gateway 向这三个进程发送协议都应该用 `call`     
+h) 当不确定用 `call` 还是用 `send` 时, 可以通过查看配置的方式确定;     
 
