@@ -203,11 +203,11 @@ h) 当不确定用 `call` 还是用 `send` 时, 可以通过查看配置的方�
 
 #### 26. dbmgr 或 centermgr 增加一个 表结构 或 修改表字段 需要哪些操作？    
 a) 通常需要在 `\deploy\server\sqlscript\modify\` 新增一个 sql 文件(修复语句); `modify` 文件夹下的 sql 文件通常是以数字来命名, 每增加一个 sql 文件, 文件名采用数字累加 1 的方式命名;    
-b) [增加表结构示例](https://github.com/yaofei365/NEO/blob/master/1/%E5%A2%9E%E5%8A%A0%E8%A1%A8%E7%BB%93%E6%9E%84%E7%A4%BA%E4%BE%8B.sql); [修改表结构示例](https://github.com/yaofei365/NEO/blob/master/1/%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%BB%93%E6%9E%84%E7%A4%BA%E4%BE%8B.sql)      
+b) [增加表结构示例](https://github.com/yaofei365/NEO/blob/master/1/%E5%A2%9E%E5%8A%A0%E8%A1%A8%E7%BB%93%E6%9E%84%E7%A4%BA%E4%BE%8B.sql); [修改表结构示例](https://github.com/yaofei365/NEO/blob/master/1/%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%BB%93%E6%9E%84%E7%A4%BA%E4%BE%8B.sql)(修改表采用存储过程的方式，主要为了可以重复调用);向表里插入数据通常也是用`replace into`；       
 c) dbmgr 在 `\deploy\server\sqlscript\modify\` 目录下新增修复语句; centermgr 在 `\deploy\server\sqlscript-center\modify\` 目录下新增修复语句;     
 d) 修复语句 sql 必须用 **utf-8 格式** 保存;     
 e) 增加修复语句 sql 并提交至 svn, 通知管理员生成 `program.exe` 后, 才能在 Lua 代码中使用 `daodb.xxxx()` 操作表的内容    
 f) 如果数据库表结构字段不对应 或 表不存在, 在启动`dbmgr` 或 `centermgr` 时会报错     
-
+g) **修复数据 与 表结构 的 sql 不要写在同一个 sql 文件; 方便管理员生成 program.exe;**       
 
 
