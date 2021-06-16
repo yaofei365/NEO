@@ -103,6 +103,16 @@ daserver.call(servant_name, request)
 a) 进程内的公用函数通常在每个进程目录下的`global.lua`里     
 b) 多个进程使用的公用代码通常在 `deploy\server\lua\server_common`目录下     
 c) 不涉及业务逻辑的公用函数在 `deploy\common\commonfunc.lua`    
+d) 公用的"队列"用法
+```
+local create_queue = require("server_common.queue")
+local q = create_queue()
+q.push(x) -- 将 x 添加到队列的尾部, 无返回值    
+q.push_array(t) -- 将 t (t为数组) 里的所有元素, 添加至队列的尾部, 无返回值    
+local x = q.pop() -- 移除并返回队列的第一个元素
+local t = q.pop_array(x) -- 移除并返回队列的前 x 个元素, 返回值为数值
+local len = q.size() -- 返回队列的长度
+```
 
 #### 15. 如何将内网环境的数据导致本地进行测试?     
 a) 打开 http://dev.project1.local:8080/job/misc-backup-database/build?delay=0sec, `DBNAME` 改为内网的数据库名, 按`build` 开始构建    
