@@ -29,6 +29,6 @@ jobs:
         run: |
           git config --global user.email "yaofei365@126.com"
           git config --global user.name "yaofei365"
-          git add 1/*.docx
+          git add 1/doc/*.docx
           git commit -am "Automated commit"
           git push
