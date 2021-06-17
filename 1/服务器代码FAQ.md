@@ -259,6 +259,12 @@ activitymgr_global:call_event()
 ```    
 分别在`globalmgr` 和 `centermgr`进程目录下的`activitymgr_event`添加 `send_to_player.lua` 并加上具体的实现。     
 
+#### 29. `DEFINE.REWARD_COST_TYPE.CHARGE_MONEY` 和 `DEFINE.REWARD_COST_TYPE.CHARGE_PRICE` 的区别是什么?     
+(1) 在早期的服务器实现中，`tb_table_charge` 只有 `money` 字段，没有 `price` 字段; `money` 是指玩家充值会得到的"元宝数"； `price` 是后期增加的字段，表示玩家充值时所花费的钱(单位: 分)    (2) 在早期的服务器实现中，“月卡”是使用“元宝”来购买；所有活动的充值进度是使用 `money` 字段的值来增加“活动进度”；
+(3) 后期，策划需求 - “月卡必须使用真钱购买”，于是在 `tb_table_charge` 表增加了一些新的充值档次，如 "月卡充值", 而"月卡充值"这个充值档次的 `money` 是必须配置为 0 的(否则按原有逻辑，玩家会收到元宝)    
+(4) 在 (3) 的前提下, "购买月卡" 也需要增加"活动进度"； 于是增加了 `price` 字段用于增加“消费真钱”的活动进度；     
+(5) 后期的活动配置基本都采用 `DEFINE.REWARD_COST_TYPE.CHARGE_PRICE` 进行配置;     
+
 
 
 
