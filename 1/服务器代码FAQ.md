@@ -241,7 +241,7 @@ end
 	player:add_call_event("on_levelup", old_level, new_level)
 	player:call_event()
 ```
-(5) `add_call_event()` 将即将调用的函数加至队列, `call_event()` 遍历队列并执行队列里的所有函数(这些细节封装在 `event/event.lua` 中）    
+(5) `add_call_event()` 将 需要调用的函数 添加至队列, `call_event()` 遍历队列并执行队列里的所有函数(这些细节封装在 `event/event.lua` 中）    
 
 #### 28. `call_event()` 的用途？     
 `call_event()`在现有服务器中，主要有以下三个用途      
