@@ -11,19 +11,19 @@ jobs:
 
       - uses: docker://pandoc/latex:2.9
         with:
-          args: -f markdown -t docx 1/1.服务器协议接口说明.md -o doc/服务器协议接口说明.docx
+          args: -f markdown -t docx 1/1.服务器协议接口说明.md -o 1/doc/服务器协议接口说明.docx
 
       - uses: docker://pandoc/latex:2.9
         with:
-          args: -f markdown -t docx 1/2.增加新通讯协议说明.md -o doc/增加新通讯协议说明.docx
+          args: -f markdown -t docx 1/2.增加新通讯协议说明.md -o 1/doc/增加新通讯协议说明.docx
           
       - uses: docker://pandoc/latex:2.9
         with:
-          args: -f markdown -t docx 1/3.服务器代码规范.md -o doc/服务器代码规范.docx
+          args: -f markdown -t docx 1/3.服务器代码规范.md -o 1/doc/服务器代码规范.docx
 
       - uses: docker://pandoc/latex:2.9
         with:
-          args: -f markdown -t docx 1/4.服务器库表结构.md -o doc/服务器库表结构.docx
+          args: -f markdown -t docx 1/4.服务器库表结构.md -o 1/doc/服务器库表结构.docx
 
       - name: Commit
         run: |
