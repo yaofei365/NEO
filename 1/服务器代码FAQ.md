@@ -246,8 +246,10 @@ end
 #### 28. `call_event()` 的用途？     
 `call_event()`在现有服务器中，主要有以下三个用途      
 (1) 封装一些常见的“事件处理”(公共代码), 如玩家等级升级, 玩家 vip 变更 ... 等等, 做其它一些成就/活动系统开发时, 需要处理"某个事件", 则可以优先在 `event` 目录下查找有无现成封装好的"事件"    
+
 (2) 实现“延迟调用”，具体应用场景如 `gateway` 的发奖励流程(具体代码详见: `/deploy/server/lua/gateway/player/reward.lua` 中的 `reward()` 函数), 需要确保所有奖励都发放成功，再处理一些“奖励事件”(如首充公告)     
 gateway 的奖励流程是 `(a)先判断数值合法性 -> (b)修改玩家内存数据 -> (c)更新数据库` 在 (a) - (c) 的过程中是不允许有"阻塞(同步)"调用的，如果有，那么可以放到 event 函数里, 在完成 (c) 后会统一调用`call_event()`     
+
 (3) 在“公用”进程的代码中，充当“公用接口”, 具体应用场景是:     
 `activitymgr`进程不是一个真正的"进程"，是 `globalmgr` 和 `centermgr` 抽取出来的 "公用代码"，主要用于管理活动相关数据；而在 `globalmgr` 和 `centermgr` 发送给玩家消息处理方式是不同的；此时可以在`activitymgr`使用 `activitymgr_global.add_call_event("send_to_player", req)`; 分别在`globalmgr` 和 `centermgr`进程目录下的`activitymgr_event`添加 `send_to_player.lua` 并加上具体的实现     
 
