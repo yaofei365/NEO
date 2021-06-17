@@ -229,7 +229,8 @@ g) **修复数据 与 表结构 的 sql 不要写在同一个 sql 文件; 方便
 ```
 (1) `call_event()` 是对一些函数的封装调用    
 (2) 这些函数通常在进程目录下的`event`文件夹下    
-(3) 进程启动时, 会遍历`event`目录下除`event.lua`文件外的所有其它文件, 并对其执行`require`操作(这个细节封装在 `event/event.lua` 中, 使用时只需要在`event`目录下添加对应的文件即可)      (4) eg. 在`event`目录下添加一个`on_levelup.lua`的文件, `on_levelup.lua` 文件的具体实现如下:    
+(3) 进程启动时, 会遍历`event`目录下除`event.lua`文件外的所有其它文件, 并对其执行`require`操作(这个细节封装在 `event/event.lua` 中, 使用时只需要在`event`目录下添加对应的文件即可)      
+(4) eg. 在`event`目录下添加一个`on_levelup.lua`的文件, `on_levelup.lua` 文件的具体实现如下:    
 ```
 return function(old_level, new_level)
 	log_info("old_level(%d)|new_level(%d)", old_level, new_level)
