@@ -254,7 +254,7 @@ gateway 的奖励流程是 `(a)先判断数值合法性 -> (b)修改玩家内存
 (3) 在“公用”进程的代码中，充当“公用接口”, 具体应用场景是:     
 `activitymgr`进程不是一个真正的"进程"，是 `globalmgr` 和 `centermgr` 抽取出来的 "公用代码"，主要用于管理活动相关数据；而在 `globalmgr` 和 `centermgr` 发送给玩家消息处理方式是不同的；此时可以在`activitymgr`使用 
 ```
-activitymgr_global:add_call_event("send_to_player", req)`; 
+activitymgr_global:add_call_event("send_to_player", req); 
 activitymgr_global:call_event()
 ```    
 分别在`globalmgr` 和 `centermgr`进程目录下的`activitymgr_event`添加 `send_to_player.lua` 并加上具体的实现。     
