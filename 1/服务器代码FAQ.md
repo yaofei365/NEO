@@ -279,6 +279,11 @@ activitymgr_global:call_event()
 (1) 从`gateway`相关的协议(GW_ 开头的协议)入手, 在 netdefine.lua 中查找相关协议 (所以在 netdefine.lua 增加注释非常必要, 有时候代码中的叫法与实际游戏中的叫法不同, 可以询问下客户端发的哪一条协议)      
 (2) 从`mysql`相关的表结构入手，先查找 dbmgr 哪些地方对"相关的表结构"进行操作, 再通过查找哪里地方发送 dbmgr 的协议    
 
+#### 31. 某个功能新增一条 GW 协议就可以解决，为何要做成“复杂”的“奖励类型”？    
+(1) 用“奖励类型”的方式实现，策划可以在任何支持“奖励配置”的地方配置，更灵活       
+(2) 新增“奖励类型”涉及的代码可以查看    
+https://github.com/jzqy/jzqy/wiki/avatar_detail-新增字段     
+https://github.com/jzqy/jzqy/wiki/新增奖励类型    
 
 
 
