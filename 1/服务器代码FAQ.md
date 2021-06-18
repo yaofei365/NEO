@@ -285,6 +285,29 @@ activitymgr_global:call_event()
 https://github.com/jzqy/jzqy/wiki/avatar_detail-新增字段     
 https://github.com/jzqy/jzqy/wiki/新增奖励类型    
 
+#### 32. gateway 有些地方同一段代码里前后调用了两次 `player:check_reward()`, 是不是多余的?     
+具体的应用场景是: gw_activity_get_reward 这条协议     
+```
+	-- 判断玩家背包是否已满
+	retcode, tbl_real_reward = player:check_reward(DEFINE.ITEM_ADD_RULE.ITEM, activity_stage.tbl_reward)
+	if retcode ~= ERRCODE.SUCCESS then
+		resp.retcode = retcode
+		daserver.response(current, resp)
+		return
+	end
+	
+	-- (A) 其它处理
+	
+        -- 发放奖励
+	retcode, tbl_real_reward = player:check_reward(DEFINE.ITEM_ADD_RULE.ITEM, activity_stage.tbl_reward)
+	if retcode ~= ERRCODE.SUCCESS then
+		log_error("gw_activity_get_reward|check_reward|retcode(0x%08X)", retcode)
+	end
+```
+(1) 前后两次判断`check_reward()`，通常是因为在代码 `-- (A) 其它处理` 这个地方有`daserver.syncCall()`或`daserver.syncSend()`“同步调用”    
+(2) 在调用`daserver.syncCall()`或`daserver.syncSend()`后，对端服务器未返回之前，此处的代码逻辑是“挂起”的 (即不会执行后面的逻辑)    
+(3) 在对端服务器返回后, 内存中的数据可能已经发生了变化(数据重入), 即原来判断背包末满，但等对端服务器返回协议后, 背包可能已经满了(这种情况比较少见，但有可能出现)    
+(4) 一种比较常见的场景是：玩家一边打怪拾取物品，一边领取活动奖励     
 
 
 
