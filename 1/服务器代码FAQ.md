@@ -309,5 +309,13 @@ https://github.com/jzqy/jzqy/wiki/新增奖励类型
 (3) 在对端服务器返回后, 内存中的数据可能已经发生了变化(数据重入), 即原来判断背包末满，但等对端服务器返回协议后, 背包可能已经满了(这种情况比较少见，但有可能出现)    
 (4) 一种比较常见的场景是：玩家一边打怪拾取物品，一边领取活动奖励     
 
+#### 33. cellapp 目录，为何在`player.lua`, `battle_avatar.lua`, `avatar.lua` 都找不到 `add_buffer()` 方法?         
+`player:add_buffer()` 函数的实现是在 `deploy/server/lua/cellapp/scene/buffer.lua`, 早期的服务器代码，由于 `deploy/server/lua/cellapp/avatar/player.lua` 文件太多代码，所以部份代码抽到独立的文件中，通常的做法是：    
+在其对应的"基类"会有一句代码：      
+```
+local buffer_module_init = require("cellapp.scene.buffer")
+...
+avatar = buffer_module_init(avatar)
+```
 
 
