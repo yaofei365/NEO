@@ -77,6 +77,10 @@ local tb_table_meridians = load_table("tb_table_meridians")
 ```
 上述两句代码通常写在 Lua 文件头部, `load_table()` 返回的值是一个`table`    
 查找哪些代码使用了某个配置表，可以全文搜索`tb_table_xxx`(其中`xxx`为策划配置的`excel`表名)    
+注意:     
+除去 `tb_table_` 外，命名的最大长度是 31 个字母的长度      
+eg. 最长命名: tb_table_1234567890123456789012345678901     
+之所以有这个最大长度限制，是因为现在策划工具将 excel 生成 lua 时, 使用的是跟文件名一样的'标签'进行生成, M$ office excel 标签最大命名长度为 31.       
 
 #### 11. 服务器间如何通讯?    
 a) 在大多数情况下，用`daserver.syncCall()`和`daserver.call()`就可以; 其中`syncCall`表示"同步"调用，必须得对端返回协议才会继续走下面的逻辑     
