@@ -48,7 +48,7 @@ b) 少数内部使用的[结构]不会在 `deploy\common\netimpl\common\` 定义
 
 #### 6. 服务器是如何触发业务逻辑的?    
 a) 由客户端发起协议触发, 通常是 `GW_` 开头的协议    
-b) 由服务器的定时器触发, 通常在进程目录下 `main` 文件通过调用 `addTimeTask` 添加定时器    
+b) 由服务器的定时器触发, 通常在进程目录下 `main` 文件通过调用 `addTimeTask` 添加定时器 (详见 22. 如何添加一个定时器?)     
 
 #### 7. 数据库的数据实时写入`mysql`么?
 不是，默认配置下，每 10 秒同步一次数据库至 `mysql`    
@@ -187,7 +187,19 @@ local get_next_uuid = require("server_common.get_next_uuid").get_next_uuid
 get_next_uuid(gateway_global.tbl_sys_uuid_inc, DBDEF.SYSTEM_UUID_TYPE.XXXXX, gateway_global.server_id)
 ```
 
-#### 22. 如何添加一个定时器?    
+#### 22. 如何添加一个定时器?     
+服务器添加定时器有两种方式     
+(1) 在服务器进程的 main 文件里用 `addTimeTask()` 函数添加定时器, `addTimeTask()` 的调用格式如下      
+```
+local function func()
+	-- 此处添加定时器逻辑
+end
+...
+
+-- func 为定时器定时执行的函数, interval 为间隔时间, 单位: 秒(即每 interval 秒, 定时调用 func 函数)
+addTimeTask(func, interval)
+```
+(2) 使用 `xxx_global.timewheel:timeout()` 函数添加定时器(其中 xxx 为进程名)     
 以 `gateway` 为例, 可以使用以下代码添加一个定时器    
 ```
 	local function timeout()
@@ -200,6 +212,8 @@ get_next_uuid(gateway_global.tbl_sys_uuid_inc, DBDEF.SYSTEM_UUID_TYPE.XXXXX, gat
 a) `gateway_global.timewheel:timeout()`　第一个参数为时间(即多长时间后触发, 注意单位是: 毫秒); 第二个参数为 触发时调用的函数;     
 b) timemout 函数的返回值决定`定时器`是否重复触发; `return nil` 时定时器则不会再触发        
 c) 定时器触发时, 调用者有责任对数据进行检查(eg. 玩家可能已经不在线, 玩家相关数据已经不在内存)     
+
+(3) 采用`addTimeTask()`添加的定时器不能取消; 采用 `xxx_global.timewheel:timeout()` 添加的定时器可以通过 `return nil` 来取消定时器
 
 #### 23. GW_ 开头与 GWI_ 开头都是 `gateway` 的协议, 它们有什么区别?     
 a) `GW_`开头的协议通常用于客户端的请求, 对客户端开放     
