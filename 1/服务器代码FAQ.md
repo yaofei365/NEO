@@ -245,7 +245,7 @@ d) 修复语句 sql 必须用 **utf-8 格式** 保存;
 e) 增加修复语句 sql 并提交至 svn, 通知管理员生成 `program.exe` 后, 才能在 Lua 代码中使用 `daodb.xxxx()` 操作表的内容    
 f) 如果数据库表结构字段不对应 或 表不存在, 在启动`dbmgr` 或 `centermgr` 时会报错     
 g) **修复数据 与 表结构 的 sql 不要写在同一个 sql 文件; 方便管理员生成 program.exe;**       
-h) 如果有新增表, 需要向 tb_sys_tableinfo 表新增一条记录, 字段值见表 comment;     
+h) 如果有新增表, 需要向 tb_sys_tableinfo 表新增一条记录, 字段值见表 comment (参考 https://github.com/yaofei365/NEO/blob/master/1/4.%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84.md 第 9 点);     
 
 #### 27. `call_event()` 的用法？     
 示例用法:
